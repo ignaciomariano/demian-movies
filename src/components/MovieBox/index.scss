@@ -1,0 +1,57 @@
+.movie-box {
+    width: 25%;
+    text-align: center;
+    margin: 2rem 0;
+    a {
+        text-decoration: none;
+        
+        h3 {
+            height: 2rem;
+            margin: 0 auto;
+            width: 70%;
+            font-size: 15px;
+            color: white;
+        }
+        img {
+            margin: 1rem 0;
+            width: 60%;
+            filter: drop-shadow(5px 5px 10px black);
+        }
+        img:hover {
+            animation: pulse 2.5s;
+
+        }
+
+    }
+}
+
+@media(max-width: 1100px) {
+
+    .movie-box {
+        width: 100%;
+    
+        a {
+            text-decoration: none;
+            text-align: center;
+            width: 70%;
+            
+            h3 {
+                width: 100%;
+                font-size: 20px;
+                color: white;
+                margin-bottom: 2rem;
+            }
+            img {
+                margin: 0 auto;
+                width: 100%;
+                margin-bottom: 5rem;
+            }
+            img:hover {
+                animation: pulse 2.5s;
+    
+            }
+    
+        }
+    }
+    
+}

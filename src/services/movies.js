@@ -1,15 +1,32 @@
 import * as axios from 'axios';
 
-const API_URL = "https://api.themoviedb.org/3/";
-const API_KEY = "564136068de8b02af82875cabe73fe14";
+const API_URL = process.env.REACT_APP_API_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
-
-
-export const getMovies = (page) => {
+const getMovies = (page, language) => {
     return axios
-      .get(`${API_URL}movie/top_rated?api_key=${API_KEY}&language=es-ES&page=${page}`)
-      .then(response => {
-          console.log(response.data)
-          return response.data.results;
-        })
-  };
+    .get(`${API_URL}top_rated?api_key=${API_KEY}&language=${language}&page=${page}`)
+    .then(response => {
+        return response.data.results;
+    })
+}
+
+const getMovie = (id, language) => {
+    return axios
+    .get(`${API_URL}${id}?api_key=${API_KEY}&language=${language}`)
+    .then(response => {
+        return response.data;
+    })
+}
+
+const getCast = (id, language) => {
+    return axios
+    .get(`${API_URL}${id}/credits?api_key=${API_KEY}&language=${language}`)
+    .then(response => {
+        return response.data.cast;
+    })
+}
+
+
+export { getMovies, getMovie, getCast };
+
